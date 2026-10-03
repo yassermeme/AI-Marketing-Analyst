@@ -19,3 +19,7 @@ The health endpoint verifies PostgreSQL and Redis independently and returns HTTP
 - `docker/`: container definitions.
 
 All secrets and connection configuration are supplied through environment variables. See `.env.example`.
+
+## Phase 2 database
+
+Apply the schema from an empty database with `cd backend && alembic upgrade head`. For a deterministic local data set after migration, run `python -m app.seed`. The seed creates two organizations, six campaigns per organization, 90 days of daily spend, and 360 linked lead records with qualified-lead, appointment, opportunity, sale, and revenue events.
